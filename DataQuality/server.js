@@ -7,6 +7,8 @@ var app = express();
 portfinder.basePort = 3100;
 portfinder.highestPort = 9999;
 
+app.use(express.static('build'));
+
 var storage = multer.diskStorage({
       destination: function (req, file, cb) {
       cb(null,'datafolder' )
