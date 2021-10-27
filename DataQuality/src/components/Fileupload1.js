@@ -86,6 +86,11 @@ function Fileupload1({setufilepath, setufilename}) {
       );
       return;
     }
+
+    else {
+            valid = true;
+        }
+
     try {
       const response = await fetch(
         'https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=100ms',
@@ -98,18 +103,18 @@ function Fileupload1({setufilepath, setufilename}) {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const updatedFile = {
-        ...fileToUpload,
-        status: 'complete',
-        iconDescription: 'Upload complete',
-      };
-      setFiles((files) =>
-        files.map((file) =>
-          file.uuid === fileToUpload.uuid ? updatedFile : file
-        )
-      );
+      // const updatedFile = {
+      //   ...fileToUpload,
+      //   status: 'complete',
+      //   iconDescription: 'Upload complete',
+      // };
+      // setFiles((files) =>
+      //   files.map((file) =>
+      //     file.uuid === fileToUpload.uuid ? updatedFile : file
+      //   )
+      // );
 
-      // show x icon after 0.1 second
+      // show x icon after 1 second
       setTimeout(() => {
         const updatedFile = {
           ...fileToUpload,
@@ -121,21 +126,23 @@ function Fileupload1({setufilepath, setufilename}) {
             file.uuid === fileToUpload.uuid ? updatedFile : file
           )
         );
-      }, 100);
-    } catch (error) {
-      const updatedFile = {
-        ...fileToUpload,
-        status: 'edit',
-        iconDescription: 'Upload failed',
-        invalid: true,
-      };
-      setFiles((files) =>
-        files.map((file) =>
-          file.uuid === fileToUpload.uuid ? updatedFile : file
-        )
-      );
-      console.log(error);
-    }
+      }, 1000);
+    } 
+   catch (error) {
+            valid = false;
+            const updatedFile = {
+                ...fileToUpload,
+                status: "edit",
+                iconDescription: "Upload failed",
+                invalid: true,
+            };
+            setFiles((files) =>
+                files.map((file) =>
+                    file.uuid === fileToUpload.uuid ? updatedFile : file
+                )
+            );
+            //console.log(error);
+        }
   };
 
 
@@ -158,9 +165,16 @@ const onAddFiles = async (evt, { addedFiles }) => {
         if(valid){
           const data = new FormData()
           data.append('file', addedFiles[0])
-
+          let updatedFile;
+          try{
              const res = await axios.post("/upload", data, {})
              if(res.status === 200){
+                
+                updatedFile = {
+                        ...newFiles[0],
+                        status: "complete",
+                        iconDescription: "Upload complete",
+                    };
                 setnotifystatus(true);
                 setufilepath(global_filename);
                 setufilename('data.csv');
@@ -168,11 +182,26 @@ const onAddFiles = async (evt, { addedFiles }) => {
             }
             else{
                   console.log("file not uploaded");
+                  seterr1status(true);
               } 
+
+          }
+          catch(err){
+            updatedFile = {
+                        ...newFiles[0],
+                        status: "edit",
+                        iconDescription: "Upload failed",
+                        invalid: true,
+                    };
+            console.log("Issue with uploaded file");
+            seterr1status(true);
+          }
+             
           }
         }
       else{
         console.log("Issue with uploaded file");
+        seterr1status(true);
       }
     };
 
