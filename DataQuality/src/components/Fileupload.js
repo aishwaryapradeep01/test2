@@ -101,7 +101,7 @@ function Fileupload({setuLabelInput, setufilepath, setufilename, ulabelerr}) {
 
     try {
       const response = await fetch(
-        'https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=100ms',
+        'https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=1000ms',
         {
           method: 'POST',
           mode: 'cors',
@@ -111,16 +111,6 @@ function Fileupload({setuLabelInput, setufilepath, setufilename, ulabelerr}) {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      // const updatedFile = {
-      //   ...fileToUpload,
-      //   status: 'complete',
-      //   iconDescription: 'Upload complete',
-      // };
-      // setFiles((files) =>
-      //   files.map((file) =>
-      //     file.uuid === fileToUpload.uuid ? updatedFile : file
-      //   )
-      // );
 
       // show x icon after 1 second
       setTimeout(() => {
@@ -230,7 +220,7 @@ const onAddFiles = async (evt, { addedFiles }) => {
   <>
      <div class="bx--form-item">
             <strong class="bx--file--label">Upload File</strong>
-            <p class="bx--label-description">Max file size of 15MB allowed</p>
+            <p class="bx--label-description">Max file size is 15 MB. Supported file type is .csv</p>
             <FileUploaderDropContainer
                 labelText="Drag and drop here or click to upload"
                 onAddFiles={onAddFiles}
