@@ -50,7 +50,7 @@ function Dataquality({ choice, LabelInput, uLabelInput, filepath, filename, ufil
               setLoading(false);
             })
             .catch((err) => {
-              //console.log(err)
+              console.log(err)
               setLoading(false);
               seterr3status(true);
             });
@@ -82,7 +82,7 @@ function Dataquality({ choice, LabelInput, uLabelInput, filepath, filename, ufil
               setLoading(false);
             })
             .catch((err) => {
-              //console.log(err)
+              console.log(err)
               setLoading(false);
               seterr3status(true);
             });
@@ -120,7 +120,7 @@ function Dataquality({ choice, LabelInput, uLabelInput, filepath, filename, ufil
               setLoading(false);
             })
             .catch((err) => {
-              //console.log(err)
+              console.log(err)
               setLoading(false);
               seterr3status(true);
             });
@@ -150,7 +150,7 @@ function Dataquality({ choice, LabelInput, uLabelInput, filepath, filename, ufil
               setLoading(false);
             })
             .catch((err) => {
-              //console.log(err)
+              console.log(err)
               setLoading(false);
               seterr3status(true);
             });
@@ -184,7 +184,7 @@ function Dataquality({ choice, LabelInput, uLabelInput, filepath, filename, ufil
               setLoading(false);
             })
             .catch((err) => {
-              //console.log(err)
+              console.log(err)
               setLoading(false);
               seterr3status(true);
             });
@@ -216,7 +216,7 @@ function Dataquality({ choice, LabelInput, uLabelInput, filepath, filename, ufil
               setLoading(false);
             })
             .catch((err) => {
-              //console.log(err)
+              console.log(err)
               setLoading(false);
               seterr3status(true);
             });
@@ -251,7 +251,7 @@ function Dataquality({ choice, LabelInput, uLabelInput, filepath, filename, ufil
               setLoading(false);
             })
             .catch((err) => {
-              //console.log(err)
+              console.log(err)
               setLoading(false);
               seterr3status(true);
             });
@@ -282,7 +282,7 @@ function Dataquality({ choice, LabelInput, uLabelInput, filepath, filename, ufil
               setLoading(false);
             })
             .catch((err) => {
-              //console.log(err)
+              console.log(err)
               setLoading(false);
               seterr3status(true);
             });

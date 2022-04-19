@@ -43,7 +43,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setLoading(false);
           })
           .catch((err) => {
-            //console.log(err)
+            console.log(err)
             setLoading(false);
             seterr3status(true);
           });
@@ -70,7 +70,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setLoading(false);
           })
           .catch((err) => {
-            //console.log(err)
+            console.log(err)
             setLoading(false);
             seterr3status(true);
           });
@@ -98,7 +98,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setLoading(false);
           })
           .catch((err) => {
-            //console.log(err)
+            console.log(err)
             setLoading(false);
             seterr3status(true);
           });
@@ -124,7 +124,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setLoading(false);
           })
           .catch((err) => {
-            //console.log(err)
+            console.log(err)
             setLoading(false);
             seterr3status(true);
           });
@@ -153,7 +153,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setLoading(false);
           })
           .catch((err) => {
-            //console.log(err)
+            console.log(err)
             setLoading(false);
             seterr3status(true);
           });
@@ -179,7 +179,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setLoading(false);
           })
           .catch((err) => {
-            //console.log(err)
+            console.log(err)
             setLoading(false);
             seterr3status(true);
           });
@@ -207,7 +207,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setLoading(false);
           })
           .catch((err) => {
-            //console.log(err)
+            console.log(err)
             setLoading(false);
             seterr3status(true);
           });
@@ -236,7 +236,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setLoading(false);
           })
           .catch((err) => {
-            //console.log(err)
+            console.log(err)
             setLoading(false);
             seterr3status(true);
           });
