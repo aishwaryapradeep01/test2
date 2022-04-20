@@ -42,11 +42,11 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setmsg(resp["message"]);
             setLoading(false);
           })
-          .catch((err) => {
-            console.log(err)
-            setLoading(false);
-            seterr3status(true);
-          });
+        // .catch((err) => {
+        //   console.log(err)
+        //   setLoading(false);
+        //   seterr3status(true);
+        // });
       }
 
     }
@@ -275,6 +275,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
       else {
         return body.result;
       }
+      setLoading(false);
 
     }
 
@@ -282,6 +283,10 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
 
       let response = await fetch('/datacompleteness?fpath=' + filepath + '&fname=' + filename);
       let body = await response.json();
+
+      console.log("response body : ", body);
+      console.log("response status: ", response.status);
+      console.log("response : ", response);
 
       if (response.status !== 200) {
         console.log("datasetquality !200: ", body.result);
@@ -291,6 +296,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
       else {
         return body.result;
       }
+      setLoading(false);
     }
   };
 
