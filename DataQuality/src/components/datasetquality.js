@@ -504,7 +504,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
       {err3status &&
         <ToastNotification
           iconDescription="Close notification"
-          subtitle={<span>Invalid Results</span>}
+          subtitle={<span>Issue with server</span>}
           timeout={3000}
           onClose={err3closef}
           title="Error Notification"
