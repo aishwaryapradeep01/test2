@@ -53,6 +53,8 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
 
     if (choice === "sample") {
 
+      console.log("In sample");
+
       if (filename === "Select Dataset" || filename === "") {
         setdataseterr1(true);
         setbuttonstate(true);
@@ -70,9 +72,11 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
             setLoading(false);
           })
           .catch((err) => {
-            console.log(err)
-            setLoading(false);
-            seterr3status(true);
+            console.log("catch err: ", err)
+            seterrstatus(true);
+            setapierr(err);
+            // setLoading(false);
+            // seterr3status(true);
           });
       }
 
@@ -261,7 +265,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
     // }
 
     if (choice === "upload") {
-      let response = await fetch('/datacompleteness?fpath=' + ufilepath + '&fname=' + ufilename);
+      let response = await fetch('datacompleteness?fpath=' + ufilepath + '&fname=' + ufilename);
       let body = await response.json();
       // if (response.status !== 200) {
       //   throw Error(body.message)
@@ -288,15 +292,18 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
       console.log("response status: ", response.status);
       console.log("response : ", response);
 
-      if (response.status !== 200) {
-        console.log("datasetquality !200: ", body.result);
-        seterrstatus(true);
-        setapierr(body.result);
-      }
-      else {
+      if (response.status == 200) {
+        setLoading(false);
         return body.result;
       }
-      setLoading(false);
+      else {
+        console.log("datasetquality !200: ", body.result);
+        // seterrstatus(true);
+        // setapierr(body.result);
+        setLoading(false);
+        throw (body.result);
+      }
+
     }
   };
 
