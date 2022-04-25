@@ -285,6 +285,8 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
 
     if (choice === "sample") {
 
+      console.log("In sample async");
+
       let response = await fetch('/datacompleteness?fpath=' + filepath + '&fname=' + filename);
       let body = await response.json();
 
@@ -293,6 +295,7 @@ function Datasetquality({ choice, filepath, filename, ufilepath, ufilename, setd
       console.log("response : ", response);
 
       if (response.status == 200) {
+        console.log("successful response: ", body.result);
         setLoading(false);
         return body.result;
       }
